@@ -53,6 +53,10 @@ in
             started = rgb;
           };
         };
+        wallpaper = {
+          enabled = true;
+          directory = "~/wallpapers"
+        };
       };
     };
   };
