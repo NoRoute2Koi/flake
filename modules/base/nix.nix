@@ -17,7 +17,6 @@
   nix = {
     enable = true;
     settings = {
-      allowUnfree = true;
       trusted-users = [ user ];
       always-allow-substitutes = true;
       experimental-features = [
@@ -31,6 +30,11 @@
       ];
     };
   };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
+
   programs.nh = {
     enable = true;
     flake = "flake/";
