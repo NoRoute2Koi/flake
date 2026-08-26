@@ -4,10 +4,14 @@
     enable = true;
     package = pkgs.nur.repos.lonerOrz.helium;
     extensions = [
-      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } #darkreader
-      { id = "nngceckbapebfimnlniiiahkandclblb"; } #bitwarden
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # darkreader
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # bitwarden
     ];
   };
+
+  hm.home.packages = with pkgs; [
+    materialgram
+  ];
 
   hm.programs.vesktop = {
     enable = true;
@@ -29,5 +33,5 @@
       };
     };
   };
-  
+
 }

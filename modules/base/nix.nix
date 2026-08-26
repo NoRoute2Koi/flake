@@ -1,4 +1,9 @@
-{ version, user, lib, ... }:
+{
+  version,
+  user,
+  lib,
+  ...
+}:
 {
 
   imports = [
@@ -12,17 +17,23 @@
   nix = {
     enable = true;
     settings = {
+      allowUnfree = true;
       trusted-users = [ user ];
       always-allow-substitutes = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       max-jobs = 6;
-        extra-substituters = [ "https://noctalia.cachix.org" ];
-        extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
     };
   };
   programs.nh = {
     enable = true;
-    flake = "~/flake";
+    flake = "flake/";
     clean = {
       enable = true;
       dates = "weekly";

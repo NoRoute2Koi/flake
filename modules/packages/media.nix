@@ -9,7 +9,10 @@
         settings.directory = "/mnt/data/music-library/";
       };
     };
-    home.packages = with pkgs; [ kew ];
+    home.packages = with pkgs; [
+      kew
+      nicotine-plus
+    ];
   };
   services.playerctld.enable = true;
 }

@@ -1,7 +1,11 @@
+{ pkgs, ... }:
 {
 
   services.displayManager.ly.enable = true;
-
+  programs.xwayland = {
+    enable = true;
+    package = pkgs.xwayland-satellite;
+  };
   programs.niri.enable = true;
   hm.xdg.configFile."niri/config.kdl" = {
     force = true;
@@ -80,7 +84,8 @@
         binds {
           Mod+T { spawn "kitty"; }
           Mod+R { spawn-sh "noctalia msg panel-toggle launcher"; }
-          Mod+A { spawn-sh "noctalia msg noctalia msg panel-toggle control-center"; }
+          Mod+A { spawn-sh "octalia msg panel-toggle control-center"; }
+          Mod+L/ { spawn-sh "noctalia msg session lock"; }
 
           Mod+Shift+Slash { show-hotkey-overlay; }
           Mod+Q repeat=false { close-window; }

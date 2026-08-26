@@ -55,7 +55,7 @@ in
         };
         wallpaper = {
           enabled = true;
-          directory = "~/wallpapers"
+          directory = "~/wallpapers";
         };
       };
     };

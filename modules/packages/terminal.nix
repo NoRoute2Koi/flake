@@ -1,11 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   hm.home.packages = with pkgs; [
-    lsd bat 
+    lsd
+    bat
   ];
 
   hm.programs.kitty = {
-   enable = true;
+    enable = true;
     shellIntegration.enableFishIntegration = true;
     extraConfig = "include themes/noctalia.conf";
     font = {
@@ -23,9 +24,9 @@
     };
   };
 
-  hm.programs.fish = {
+  programs.fish = {
     enable = true;
-    shellInit = "set fish_greeting";
+    shellInit = "set fish_greeting && source (/etc/profiles/per-user/${user}/bin/starship init fish --print-full-init | psub)";
     shellAliases = {
       ls = "lsd -l";
       cat = "bat -p";

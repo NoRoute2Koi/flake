@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   hardware = {
+    enableRedistributableFirmware = true;
     amdgpu.initrd.enable = true;
     cpu.intel.updateMicrocode = true;
     graphics = {
@@ -11,7 +12,13 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" ];

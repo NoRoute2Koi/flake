@@ -27,10 +27,17 @@
         file-picker.hidden = false;
       };
     };
-    languages.language = [{
+    languages.language = [
+      {
         name = "nix";
         auto-format = true;
         formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-      }];
+      }
+    ];
   };
+
+  hm.home.packages = with pkgs; [
+    android-tools
+  ];
+
 }
