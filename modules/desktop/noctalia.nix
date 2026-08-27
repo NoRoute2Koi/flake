@@ -1,7 +1,6 @@
 { ... }:
 let
-  rgb = ''openrgb --color $(noctalia theme $(noctalia msg wallpaper-get) | grep "primary" | cut -d '#' -f 2 | c
-ut -b 1-6 | sed -n "1p")'';
+  rgb = ''openrgb --color $(noctalia theme $(noctalia msg wallpaper-get) | grep "primary" | cut -d '#' -f 2 | cut -b 1-6 | sed -n "1p")'';
 in
 {
   hm = {
@@ -23,9 +22,21 @@ in
           position = "left";
           radius = 0;
           margin_ends = 0;
-          start  = ["launcher" "wallpaper" "workspaces"];
-          center = ["clock"];
-          end    = ["media" "tray" "notifications" "clipboard" "network" "volume" "session"];
+          start = [
+            "launcher"
+            "wallpaper"
+            "workspaces"
+          ];
+          center = [ "clock" ];
+          end = [
+            "media"
+            "tray"
+            "notifications"
+            "clipboard"
+            "network"
+            "volume"
+            "session"
+          ];
         };
         widget = {
           media = {
@@ -36,12 +47,24 @@ in
           network.show_label = false;
           workspaces.hide_when_empty = true;
         };
-        contrul_center.hidden_tabs = [ "monitor" "bluetooth" "screen-time" "power" ];
+        contrul_center.hidden_tabs = [
+          "monitor"
+          "bluetooth"
+          "screen-time"
+          "power"
+        ];
         theme = {
           mode = "dark";
           source = "wallpaper";
           templates = {
-            builtin_ids = [ "niri" "helix" "gtk3" "gtk4" "qt" "kitty" ];
+            builtin_ids = [
+              "niri"
+              "helix"
+              "gtk3"
+              "gtk4"
+              "qt"
+              "kitty"
+            ];
             community_ids = [ "discord" ];
           };
           audio.enable_overdrive = true;

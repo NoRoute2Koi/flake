@@ -85,7 +85,7 @@
           Mod+T { spawn "kitty"; }
           Mod+R { spawn-sh "noctalia msg panel-toggle launcher"; }
           Mod+A { spawn-sh "octalia msg panel-toggle control-center"; }
-          Mod+L/ { spawn-sh "noctalia msg session lock"; }
+          Mod+L { spawn-sh "noctalia msg session lock"; }
 
           Mod+Shift+Slash { show-hotkey-overlay; }
           Mod+Q repeat=false { close-window; }

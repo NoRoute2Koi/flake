@@ -6,7 +6,12 @@
       feh.enable = true;
       beets = {
         enable = true;
-        settings.directory = "/mnt/data/music-library/";
+        settings = {
+          directory = "/mnt/data/music-library/";
+          library = "/mnt/data/music-library/.musiclibrary.db";
+          duplicate_action = "skip";
+          quiet = true;
+        };
       };
     };
     home.packages = with pkgs; [
